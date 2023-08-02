@@ -12,4 +12,15 @@ public class StringTest {
         String actual = "abc".replace("b", "d");
         assertThat(actual).isEqualTo("adc");
     }
+
+    @Test
+    @DisplayName("문자열을 ','를 기준으로 분리")
+    void split() {
+        String[] arr;
+        arr = "1,2".split(",");
+        assertThat(arr).contains("1", "2");
+
+        arr = "1".split(",");
+        assertThat(arr).containsExactly("1");
+    }
 }
