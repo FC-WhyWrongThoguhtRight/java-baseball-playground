@@ -1,8 +1,9 @@
 package study;
 
-import org.junit.jupiter.api.BeforeEach;
-
+import org.junit.jupiter.api.*;
 import java.util.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SetTest {
     private Set<Integer> numbers;
@@ -16,4 +17,9 @@ public class SetTest {
         numbers.add(3);
     }
 
+    @Test
+    @DisplayName("Set의 크기")
+    void size() {
+        assertThat(numbers.size()).isEqualTo(3);
+    }
 }
