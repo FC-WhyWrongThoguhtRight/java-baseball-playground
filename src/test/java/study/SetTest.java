@@ -1,9 +1,13 @@
 package study;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SetTest {
     private Set<Integer> numbers;
@@ -21,5 +25,15 @@ public class SetTest {
     @DisplayName("Set의 크기")
     void size() {
         assertThat(numbers.size()).isEqualTo(3);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1,2,3})
+    @DisplayName("특정 원소값이 Set에 포함되어 있는지 여부")
+    void contains(int number) {
+//      assertThat(numbers.contains(1)).isTrue();
+//      assertThat(numbers.contains(2)).isTrue();
+//      assertThat(numbers.contains(3)).isTrue();  // 중복제거
+        assertTrue(numbers.contains(number));
     }
 }
