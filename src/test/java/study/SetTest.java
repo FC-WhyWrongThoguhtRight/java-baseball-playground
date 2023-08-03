@@ -2,6 +2,7 @@ package study;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.*;
@@ -29,11 +30,18 @@ public class SetTest {
 
     @ParameterizedTest
     @ValueSource(ints = {1,2,3})
-    @DisplayName("특정 원소값이 Set에 포함되어 있는지 여부")
+    @DisplayName("특정 원소값이 Set에 포함되어 있는지 여부 (true만)")
     void contains(int number) {
 //      assertThat(numbers.contains(1)).isTrue();
 //      assertThat(numbers.contains(2)).isTrue();
 //      assertThat(numbers.contains(3)).isTrue();  // 중복제거
         assertTrue(numbers.contains(number));
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"1:true","2:true","3:true","4:false","5:false"}, delimiter = ':')
+    @DisplayName("특정 원소값이 Set에 포함되어 있는지 여부 (true, false)")
+    void containsBoolean(int number, boolean expect) {
+        assertThat(numbers.contains(number)).isEqualTo(expect);
     }
 }
