@@ -6,14 +6,28 @@ public class UserInput {
 
     Scanner sc;
 
-    int input;
+    int[] input;
 
-    UserInput(){
-        sc = new Scanner(System.in);
-        input = sc.nextInt();
+    UserInput(Scanner sc){
+        input = new int[Game.BALLS_LENGTH.getNum()];
+        System.out.print("숫자를 입력해 주세요 : ");
+        int num = sc.nextInt();
+        setInput(num);
     }
 
-    public int getInput() {
+    private void setInput(int num) {
+        int index = Game.BALLS_LENGTH.getNum() - 1;
+        for(int i = index ; i >= 0 ; i--){
+            input[i] = num % 10;
+            num /= 10;
+        }
+    }
+
+    UserInput(int[] input){
+        this.input = input;
+    }
+
+    public int[] getInput() {
         return this.input;
     }
 }

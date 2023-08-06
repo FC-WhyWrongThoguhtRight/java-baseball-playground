@@ -8,6 +8,10 @@ public class Ball {
         number = makeNumber();
     }
 
+    public Ball(int i) {
+        number = i;
+    }
+
     public boolean validateNumber(int number){
         return 0 < number && number < 10;
     }
