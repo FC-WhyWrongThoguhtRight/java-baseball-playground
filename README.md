@@ -29,6 +29,7 @@ com / user
 123, 145 -> 1strike 
 
 큰 단위
+
 PlayResult result = play(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6));
 
 작은 단위로 생각해보자.
@@ -41,6 +42,8 @@ com / user
 2. 3자리 숫자에서 1 포지션씩 비교 
 com / user 
 123 , (1,4) -> nothing
+
+3. 마지막 단계 구현
 
 
 ---

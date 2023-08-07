@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Balls {
-    private final List<Ball> balls;
+    private final List<Ball> answers;
 
     public Balls(List<Integer> answers) {
-        this.balls = mapBall(answers);
+        this.answers = mapBall(answers);
     }
 
     private List<Ball> mapBall(List<Integer> answers) {
@@ -18,6 +18,18 @@ public class Balls {
         return balls;
     }
 
+    public PlayResult play(List<Integer> balls) {
+        Balls userBalls = new Balls(balls);
+        PlayResult result = new PlayResult();
+
+        for(Ball answer : answers){
+            BallStatus status = userBalls.play(answer);
+            result.report(status);
+        }
+
+        return result;
+    }
+
     /*
     테스트를 진행하니
     잘 모르는 함수 사용에 거부감이 없다.
@@ -26,7 +38,7 @@ public class Balls {
     더블 콜론
      */
     public BallStatus play(Ball userBall) {
-        return balls.stream()
+        return answers.stream()
                 .map(answer -> answer.play(userBall))
                 .filter(BallStatus::isNotNothing)
                 .findFirst()
