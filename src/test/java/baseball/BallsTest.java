@@ -1,5 +1,9 @@
 package baseball;
 
+import baseball.domain.Ball;
+import baseball.domain.BallStatus;
+import baseball.domain.Balls;
+import baseball.domain.PlayResult;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
