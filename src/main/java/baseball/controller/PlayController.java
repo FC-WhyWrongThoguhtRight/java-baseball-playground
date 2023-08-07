@@ -8,7 +8,7 @@ public class PlayController {
 
     PlayService playService = new PlayService();
 
-    public void startGame() {
+    public void playGame() {
         List<Integer> answer = playService.creteRandom();
         boolean pass = false;
 

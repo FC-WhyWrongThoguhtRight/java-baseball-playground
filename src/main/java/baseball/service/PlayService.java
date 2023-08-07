@@ -1,5 +1,6 @@
 package baseball.service;
 
+import baseball.ValidationUtils;
 import baseball.domain.Balls;
 import baseball.domain.PlayResult;
 import baseball.domain.RandomBalls;
@@ -21,6 +22,10 @@ public class PlayService {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.next();
         List<Integer> user_balls = new ArrayList<>();
+
+        if (!ValidationUtils.duplicatedNo(user_balls) || !ValidationUtils.lengthNo(user_balls) ) {
+            throw new IllegalArgumentException();
+        }
 
         for (String number : input.split("")) {
             user_balls.add(Integer.parseInt(number));

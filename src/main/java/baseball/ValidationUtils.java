@@ -16,7 +16,6 @@ public class ValidationUtils {
         return numbers.size() == numbers.stream().distinct().count();
     }
 
-
     public static boolean lengthNo(List<Integer> numbers) {
         return numbers.size() == SIZE_NUM;
     }

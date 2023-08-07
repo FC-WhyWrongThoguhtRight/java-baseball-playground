@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import baseball.ValidationUtils;
+
 import java.util.Objects;
 
 public class Ball {
@@ -7,6 +9,9 @@ public class Ball {
     private final int ballNo;
 
     public Ball(int position, int ballNo) {
+        if (!ValidationUtils.validNo(ballNo)) {
+            throw new IllegalArgumentException();
+        }
         this.position = position;
         this.ballNo = ballNo;
     }

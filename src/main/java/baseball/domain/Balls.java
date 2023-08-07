@@ -11,6 +11,7 @@ public class Balls {
     }
 
     private List<Ball> mapBall(List<Integer> answers) {
+
         List<Ball> balls = new ArrayList<>();
         for (int i = 0; i < answers.size(); i++) {
             balls.add(new Ball(i + 1, answers.get(i)));
