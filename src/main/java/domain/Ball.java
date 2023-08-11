@@ -1,4 +1,4 @@
-package baseball;
+package domain;
 
 public class Ball {
     private final Integer idx;
@@ -15,5 +15,15 @@ public class Ball {
 
     public Integer getNumber() {
         return number;
+    }
+
+    public BallStatus getResult(Ball ball) {
+        if (this.number == ball.number && this.idx == ball.idx) {
+            return BallStatus.STRIKE;
+        }
+        if (this.number == ball.number) {
+            return BallStatus.BALL;
+        }
+        return BallStatus.NOTHING;
     }
 }
