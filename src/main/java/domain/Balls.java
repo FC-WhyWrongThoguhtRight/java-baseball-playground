@@ -19,7 +19,7 @@ public class Balls {
         assert number.length() == MAX_LENGTH;
         balls = new Ball[MAX_LENGTH];
         for (int i = 0; i < MAX_LENGTH; i++) {
-            balls[i] = new Ball(i, number.charAt(i) + "");
+            balls[i] = new Ball(i, String.valueOf(number.charAt(i)));
         }
     }
 
