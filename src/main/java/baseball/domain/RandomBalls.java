@@ -11,7 +11,7 @@ public class RandomBalls {
     /*
     1~9 난수 생성
     */
-    public int randomNumMake() {
+    public int makeRandomNum() {
         Random random = new Random();
 
         //n 미만의 랜덤 정수 리턴 (1~9)
@@ -25,7 +25,7 @@ public class RandomBalls {
         List<Integer> arrayList = new ArrayList<>();
 
         while (arrayList.size() < SIZE_BALLS) {
-            int num = randomNumMake();
+            int num = makeRandomNum();
             if (arrayList.contains(num)) {
                 continue;
             }

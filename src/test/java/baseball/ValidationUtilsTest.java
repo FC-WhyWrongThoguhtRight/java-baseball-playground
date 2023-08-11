@@ -22,7 +22,6 @@ public class ValidationUtilsTest {
     @Test
     @DisplayName("중복수 확인하기")
     void 숫자예외처리2(){
-        // 테스트 값은 경계값으로 진행하자.
         assertThat(ValidationUtils.duplicatedNo(Arrays.asList(1, 2, 3))).isTrue();
         assertThat(ValidationUtils.duplicatedNo(Arrays.asList(1, 2, 2))).isFalse();
     }
@@ -30,7 +29,6 @@ public class ValidationUtilsTest {
     @Test
     @DisplayName("세자리 수 확인")
     void 숫자예외처리3(){
-        // 테스트 값은 경계값으로 진행하자.
         assertThat(ValidationUtils.lengthNo(Arrays.asList(1, 2, 3))).isTrue();
         assertThat(ValidationUtils.lengthNo(Arrays.asList(1, 2, 3, 4))).isFalse();
     }

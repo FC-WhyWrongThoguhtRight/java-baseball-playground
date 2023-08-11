@@ -11,7 +11,6 @@ public class Balls {
     }
 
     private List<Ball> mapBall(List<Integer> answers) {
-
         List<Ball> balls = new ArrayList<>();
         for (int i = 0; i < answers.size(); i++) {
             balls.add(new Ball(i + 1, answers.get(i)));
@@ -23,7 +22,7 @@ public class Balls {
         Balls userBalls = new Balls(balls);
         PlayResult result = new PlayResult();
 
-        for(Ball answer : answers){
+        for (Ball answer : answers) {
             BallStatus status = userBalls.play(answer);
             result.report(status);
         }

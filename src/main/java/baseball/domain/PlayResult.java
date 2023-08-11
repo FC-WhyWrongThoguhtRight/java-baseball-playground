@@ -13,11 +13,11 @@ public class PlayResult {
     }
 
     public void report(BallStatus status) {
-        if(status.isStrike()){
+        if (status.isStrike()) {
             this.strike += 1;
         }
 
-        if(status.isBall()){
+        if (status.isBall()) {
             this.ball += 1;
         }
     }
