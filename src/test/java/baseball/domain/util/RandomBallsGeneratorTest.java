@@ -1,8 +1,8 @@
-package baseball.domain;
+package baseball.domain.util;
 
 import org.junit.jupiter.api.RepeatedTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class RandomBallsGeneratorTest {
     @RepeatedTest(value = 100)
