@@ -37,7 +37,27 @@ public class Balls {
         this.balls = toBalls(strBallNumbers);
     }
 
-    public Ball[] getBalls() {
-        return this.balls;
+    public int countStrike(Balls targetBalls) {
+        return (int) Arrays.stream(targetBalls.balls)
+                .map(targetBall -> isStrike(targetBall))
+                .filter(flag -> flag == true)
+                .count();
+    }
+
+    public int countBall(Balls targetBalls) {
+        return (int) Arrays.stream(targetBalls.balls)
+                .map(targetBall -> isBall(targetBall))
+                .filter(flag -> flag == true)
+                .count();
+    }
+
+    private boolean isBall(Ball targetBall) {
+        return Arrays.stream(this.balls)
+                .anyMatch(ball -> ball.matchNumber(targetBall) && !ball.matchPosition(targetBall));
+    }
+
+    private boolean isStrike(Ball targetBall) {
+        return Arrays.stream(this.balls)
+                .anyMatch(ball -> ball.matchNumber(targetBall) && ball.matchPosition(targetBall));
     }
 }

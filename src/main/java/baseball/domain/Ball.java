@@ -34,4 +34,12 @@ public class Ball{
     public int getNumber() {
         return number;
     }
+
+    public boolean matchNumber(Ball targetBall) {
+        return this.number == targetBall.number;
+    }
+
+    public boolean matchPosition(Ball targetBall) {
+        return this.position == targetBall.position;
+    }
 }
