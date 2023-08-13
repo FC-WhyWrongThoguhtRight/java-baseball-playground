@@ -27,14 +27,6 @@ public class Ball{
         }
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
     public boolean matchNumber(Ball targetBall) {
         return this.number == targetBall.number;
     }
