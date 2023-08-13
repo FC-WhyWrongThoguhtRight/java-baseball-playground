@@ -23,6 +23,8 @@ classDiagram
 
         +BaseballConsole(in, out)
         +start(): void
+        -process(): void
+        -askContinue(): void
     }
 
     BaseballConsole *-- BaseballGame : Composition
@@ -32,7 +34,8 @@ classDiagram
         -Balls answer
 
         +BaseballGame()
-        +guess(String strBalls): String
+        +BaseballGame(Balls answer)
+        +guess(String strBallNumbers): String
         +isGameEnd(): boolean
     }
 
@@ -41,8 +44,13 @@ classDiagram
     class Balls {
         -Ball[3] balls;
 
-        +Balls(String strBalls)
-        +getBalls(): Ball[]
+        +Balls(String strBallNumbers)
+        +Balls(Set<Integer> ballNumbers)
+        +countStrike(Balls targetBalls)
+        +countBall(Balls targetBalls)
+        -isBall(Ball targetBall)
+        -isStrike(Ball targetBall)
+        -validate(String strBallNumbers): void
     }
 
     Balls o-- Ball : Aggregation
@@ -52,16 +60,16 @@ classDiagram
         -int number
         
         +Ball(position, number)
-        +getPosition(): int
-        +getNumber(): int
+        +matchNumber(Ball targetBall): int
+        +matchPosition(Ball targetBall): int
+        -validatePosition() : void
+        -validateNumber() : void
     }
 
     BaseballGame ..> Judge : Dependency
 
     class Judge {
         +$judge(Balls answer, Balls input): JudgeResult
-        -countStrike(): int
-        -countBall(): int
     }
 
     Judge ..> JudgeResult : Dependency
@@ -78,6 +86,7 @@ classDiagram
 
     class RandomBallsGenerator {
         +$generate(): Balls
+        -$generateRandomOneToNine(): int
     }
 
     RandomBallsGenerator ..> Balls : Dependency
